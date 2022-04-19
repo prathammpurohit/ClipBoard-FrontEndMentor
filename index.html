@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bai+Jamjuree:wght@300&family=Big+Shoulders+Display:wght@300&family=Cairo&family=Cormorant+Garamond:ital@1&family=Croissant+One&family=EB+Garamond&family=Fraunces:wght@100&family=Hind&family=Inria+Serif&family=Inter&family=Lexend+Deca:wght@300;400&family=Lobster&family=Luxurious+Roman&family=Marck+Script&family=MedievalSharp&family=Merriweather&family=Noto+Serif+JP&family=Open+Sans&family=Outfit&family=Playfair+Display+SC&family=Playfair+Display:ital,wght@1,500&family=Poppins:wght@300&family=Quicksand&family=Roboto&family=Sacramento&family=Sedgwick+Ave&family=Source+Serif+Pro&family=Special+Elite&family=Tenor+Sans&family=The+Nautigal:wght@700&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>ClipBoard</title>
+    <style>
+        :root {
+            --Strong-Cyan: hsl(171, 66%, 44%);
+            --Light-Blue: hsl(233, 100%, 69%);
+            --Dark-Grayish-Blue: hsl(210, 10%, 33%);
+            --Grayish-Blue: hsl(201, 11%, 66%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            cursor: default;
+            font-family: Bai Jamjuree;
+            /* box-sizing: content-box; */
+        }
+
+        header {
+            background: url("/images/bg-header-desktop.png") no-repeat center center/cover;
+            min-height: 35vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        #Loader{
+            background:url("images/loader.gif") rgb(160, 171, 202) no-repeat center;
+            background-size: 30vh;
+            position: absolute;
+            top: 0px;
+            z-index: 2;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+        }
+        #Logo {
+            height: 15vh;
+        }
+
+        .container {
+            min-height: 50vh;
+        }
+        .heading {
+            font-size: 2rem;
+            color: var(--Dark-Grayish-Blue);
+        }
+
+        .para {
+            font-size: 1rem;
+            color: var(--Grayish-Blue);
+            letter-spacing: 0.2px;
+        }
+
+        #Con1Con2Holder {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #Container1 {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            width: 60vw;
+            margin-bottom: 20vh;
+        }
+
+        #HeadingCon1 {
+            font-size: 3rem;
+            margin-bottom: 1.6rem;
+            color: var(--Dark-Grayish-Blue);
+        }
+
+        #ParaCon1 {
+            text-align: center;
+            padding: 0px 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .btn {
+            font-size: 1.3rem;
+            padding: 0.7rem 4rem;
+            color: white;
+            border-style: none;
+            border-radius: 26px;
+            background-color: rgb(64, 161, 25);
+            margin: 3vw;
+        }
+
+        .btn:hover {
+            background-color: rgba(64, 161, 25, 0.8);
+            cursor: pointer;
+        }
+
+        #Button2Con1 {
+            background: rgb(21, 21, 75);
+        }
+
+        #Button2Con1:hover {
+            background: rgba(21, 21, 75, 0.8);
+        }
+
+        #Container2 {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            width: 58vw;
+        }
+
+        #HeadingCon2 {
+            margin-bottom: 1.6rem;
+        }
+
+        #ParaCon2 {
+            text-align: center;
+            padding: 0px 2rem;
+            margin-bottom: 4rem;
+        }
+
+        #Container3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20vh;
+        }
+
+        #Box1Con3 {
+            padding-top: 16vh;
+            margin-right: 10vh;
+        }
+
+        #Box2Con3 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .headingMiniBox {
+            margin-bottom: 0.2rem;
+        }
+
+        .paraMiniBox {
+            padding-right: 3rem;
+            margin-bottom: 6vh;
+        }
+
+        #Container4 {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #ImageHolderCon4 {
+            margin-bottom: 5vh;
+        }
+
+        .headingCon4 {
+            margin-bottom: 0.8rem;
+        }
+
+        .paraCon4 {
+            margin-bottom: 5rem;
+        }
+        #Container5{
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 10vh;
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 25vw;
+        }
+        .imageCon5{
+            height: 5vh;
+            margin-bottom: 5vh;
+        }
+        .paraCon5{
+            padding: 0.8rem 1rem 0rem 0rem;
+            text-align: center;
+        }
+        #Container6{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .imageCon6{
+            height: 3rem;
+        }
+        #Container7{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10vh;
+        }
+        #HeadingCon7{
+            margin-bottom: 1.6rem;
+        }
+        footer{
+            background-color: rgb(235, 231, 236);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            min-height: 15vh;
+        }
+        .fLogo{
+            height: 5vh;
+        }
+        #ParaHolder{
+            display: flex;
+            flex-direction: row;
+        }
+        #SocialHolder{
+            display: flex;
+            flex-direction: row;
+        }
+        #SocialHolder i{
+            font-size: 4vh;
+            margin: 2rem;
+        }
+        #SocialHolder i:hover{
+            color: var(--Dark-Grayish-Blue);
+            cursor: pointer;
+        }
+        .paraFooter{
+            margin: 2rem;
+        }
+        .paraFooter:hover{
+            color: black;
+            cursor: pointer;
+        }
+        @media  screen and (max-width:1070px){
+            header {
+            background: url("/images/bg-header-mobile.png") no-repeat center center/cover;
+            }
+            .paraMiniBox{
+                padding: 2rem;
+            }
+            #Box1Con3 {
+            padding-top: 0px;
+            margin-right: 0px;
+        }
+            #Con1Con2Holder{
+                width: unset;
+                height: unset;
+            }
+            #Container1{
+                height: unset;
+                width: unset;
+                margin-bottom: 8vh;
+            }
+            #Container2{
+                height: unset;
+                width: unset;
+                margin-bottom: 0px;
+            }
+            #HeadingCon2 {
+            margin-bottom: 1.3rem;
+        }
+
+        #ParaCon2 {
+            margin-bottom: 1rem;
+        }
+            #Container3{
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: unset;
+                width: unset;
+            }
+            #Box2Con3{
+              text-align: center;
+            }
+           #ImageBox1Con3{
+               width: 45vw;
+               margin-bottom: 5vh;
+           }
+           #ImageCon4{
+               width: 45vw;
+           }
+           .para{
+               text-align: center;
+               margin-bottom: 2vh;
+           }
+           .heading{
+               font-size: 1rem;
+               text-align: center;
+           }
+           .container{
+               width: unset;
+           }
+           #HeadingCon1{
+               font-size: 1.3rem;
+               text-align: center;
+           }
+           .box{
+               width: unset;
+           }
+
+           .btn{
+               font-size: 0.7rem;
+               padding: 0.4rem 1rem;
+           }
+           #ButtonHolderCon1{
+               display: flex;
+           }
+           #Logo{
+               height: 10vh;
+           }
+           footer{
+               flex-direction: column;
+           }
+           #ParaHolder{
+               flex-direction: column;
+           }
+           .paraFooter{
+               margin: 0.5rem;
+           }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Loader"></div>
+    <header>
+        <img src="images/logo.svg" alt="" id="Logo">
+    </header>
+
+    <main>
+        <section id="Con1Con2Holder">
+
+            <section id="Container1" class="container">
+                <h1 id="HeadingCon1">
+                    A History Of Everything You Copy
+                </h1>
+                <p class="para" id="ParaCon1">
+                    Clipboard allows you to track and organize everything you
+                    copy. Instantly access your clipboard on all your devices.
+                </p>
+                <div id="ButtonHolderCon1">
+                    <button class="btn" id="Button1Con1">Download for iOS</button>
+                    <button class="btn" id="Button2Con1">Download for Mac</button>
+                </div>
+            </section>
+            <section id="Container2" class="container">
+                <h2 class="heading" id="HeadingCon2">
+                    Keep track of your snippets</h2>
+                <p class="para" id="ParaCon2">
+                    Clipboard instantly stores any item you copy in the cloud,
+                    meaning you can access your snippets immediately on all your
+                    devices. Our Mac and iOS apps will help you organize everything.
+                </p>
+            </section>
+
+        </section>
+
+        <section id="Container3" class="container">
+            <div id="Box1Con3">
+                <img src="images/image-computer.png" alt="" class="image" id="ImageBox1Con3">
+            </div>
+            <div id="Box2Con3">
+                <div class="miniBox" id="miniBox1">
+                    <h2 class="heading headingMiniBox" id="HeadingMiniBox1">
+                        Quick Search
+                    </h2>
+                    <p class="para paraMiniBox" id="ParaMiniBox1">
+                        Easily search your snippets by content, category, web address, application, and more.
+                    </p>
+                </div>
+                <div class="miniBox" id="miniBox2">
+                    <h2 class="heading headingMiniBox" id="HeadingMiniBox2">
+                        iCloud Sync
+                    </h2>
+                    <p class="para paraMiniBox" id="ParaMiniBox2">
+                        Instantly saves and syncs snippets across all your devices.
+                    </p>
+                </div>
+                <div class="miniBox" id="miniBox3">
+                    <h2 class="heading headingMiniBox" id="HeadingMiniBox3">
+                        Complete History
+                    </h2>
+                    <p class="para paraMiniBox" id="ParaMiniBox3">
+                        Retrieve any snippets from the first moment you started using the app.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="Container4" class="container">
+            <h2 class="heading headingCon4" id="Heading1Con4">
+                Access Clipboard anywhere
+            </h2>
+            <p class="para paraCon4" id="Para1Con4">
+                Whether you’re on the go, or at your computer, you can access all your Clipboard
+                snippets in a few simple clicks.
+            </p>
+            <div id="ImageHolderCon4">
+                <img src="images/image-devices.png" alt="" class="image" id="ImageCon4">
+            </div>
+            <h2 class="heading headingCon4" id="Heading1Con4">
+                Supercharge your workflow
+            </h2>
+            <p class="para paraCon4" id="Para1Con4">
+                We’ve got the tools to boost your productivity.
+            </p>
+        </section>
+
+        <section id="Container5" class="container">
+
+            <div class="box1Con5 box">
+                <img src="images/icon-blacklist.svg" alt="" class="imageCon5">
+                <h2 class="heading headingCon5" id="HeadingBox1Con5">
+                    Create blacklists
+                </h2>
+                <p class="para paraCon5" id="ParaBox1Con5">
+                    Ensure sensitive information never makes its way to your clipboard by excluding certain sources.
+                </p>
+            </div>
+            <div class="box2Con5 box">
+                <img src="images/icon-text.svg" alt="" class="imageCon5">
+                <h2 class="heading headingCon5" id="HeadingBox2Con5">
+                    Plain text snippets
+                </h2>
+                <p class="para paraCon5" id="ParaBox2Con5">
+                    Remove unwanted formatting from copied text for a consistent look.
+                </p>
+            </div>
+            <div class="box3Con5 box">
+                <img src="images/icon-preview.svg" alt="" class="imageCon5">
+                <h2 class="heading headingCon5" id="HeadingBox3Con5">
+                    Sneak preview
+                </h2>
+                <p class="para paraCon5" id="ParaBox3Con5">
+                    Quick preview of all snippets on your Clipboard for easy access.
+                </p>
+            </div>
+
+        </section>
+
+        <section id="Container6" class="container">
+            <img src="images/logo-google.png" alt="" class="imageCon6">
+            <img src="images/logo-ibm.png" alt="" class="imageCon6">
+            <img src="images/logo-microsoft.png" alt="" class="imageCon6">
+            <img src="images/logo-hp.png" alt="" class="imageCon6">
+            <img src="images/logo-vector-graphics.png" alt="" class="imageCon6">
+        </section>
+
+        <section id="Container7" class="container">
+            <h2 id="HeadingCon7" class="heading">
+                A History Of Everything You Copy
+            </h2>
+            <p class="para paraCon7" id="ParaCon1">
+                Clipboard allows you to track and organize everything you
+                copy. Instantly access your clipboard on all your devices.
+            </p>
+            <div id="ButtonHolderCon1">
+                <button class="btn" id="Button1Con1">Download for iOS</button>
+                <button class="btn" id="Button2Con1">Download for Mac</button>
+            </div>
+        </section>
+            <footer>
+                <img src="images/logo.svg" alt="" id="Logo" class="fLogo">
+                <div id="ParaHolder">
+                <p class="para paraFooter">FAQs</p>
+                <p class="para paraFooter">Privacy Policy</p>
+                <p class="para paraFooter">Install guide</p>
+                <p class="para paraFooter">Contact Us</p>
+                <p class="para paraFooter">Press Kit</p>
+                </div>
+                <div id="SocialHolder">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-instagram"></i>
+                </div>
+            </footer>
+        
+    </main>
+
+</body>
+    <script>
+        let a=document.getElementById("Loader");
+        window.addEventListener("load",function(){
+           a.style.display="none";
+        });
+    </script>
+</html>
